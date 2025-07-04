@@ -1,76 +1,299 @@
-/* Estilos para a seção "Os Sabores da Terra" */
-#sabores {
-    background-color: #f9f9f9;
-    padding: 30px 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+/* Importação de fontes do Google Fonts - Opcional, mas melhora a tipografia */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#sabores h2 {
-    color: #4CAF50; /* Tom de verde mais vibrante */
-    border-bottom: 2px solid #4CAF50;
-    padding-bottom: 15px;
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-.grid-sabores {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.sabor-item {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-}
-
-.sabor-item:hover {
-    transform: scale(1.03);
-}
-
-.sabor-item img {
-    width: 100%;
-    height: auto;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    display: block;
-}
-
-.sabor-item h3 {
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
     color: #333;
-    margin: 15px;
-    font-size: 1.2em;
+    background-color: #f4f4f4;
 }
 
-.sabor-item p {
-    color: #666;
-    margin: 0 15px 15px;
-    line-height: 1.5;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-.sabor-item .saiba-mais {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 15px;
+/* Header */
+header {
+    background-color: #007bff; /* Azul vibrante */
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    height: 60px; /* Ajuste o tamanho do seu logo */
+}
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
     text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #e0f2f7; /* Um tom mais claro de azul para hover */
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 123, 255, 0.7), rgba(0, 123, 255, 0.7)), url('hero-bg.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #28a745; /* Verde para ação */
+    color: white;
+    padding: 12px 25px;
     border-radius: 5px;
-    margin: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.btn-small {
+    display: inline-block;
+    background-color: #6c757d; /* Cinza para secundário */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9em;
     transition: background-color 0.3s ease;
 }
 
-.sabor-item .saiba-mais:hover {
-    background-color: #388E3C; /* Tom de verde mais escuro no hover */
+.btn-small:hover {
+    background-color: #5a6268;
 }
 
-/* Media Query para telas menores */
-@media (max-width: 600px) {
-    .grid-sabores {
-        grid-template-columns: 1fr;
+/* Sections Generics */
+.section-padded {
+    padding: 60px 0;
+}
+
+.section-padded h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #0056b3; /* Um tom de azul mais escuro */
+}
+
+.section-padded p {
+    text-align: center;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bg-light {
+    background-color: #e9ecef; /* Um cinza claro para seções de fundo */
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Info Blocks (Sobre o Tema) */
+.info-blocks {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+}
+
+.info-block {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    text-align: center;
+    flex: 1;
+    min-width: 280px; /* Garante que os blocos não fiquem muito pequenos */
+}
+
+.info-block h3 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+/* Project Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    color: #0056b3;
+    margin-bottom: 5px;
+    padding: 0 15px;
+}
+
+.project-card p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+/* Interactive Grid */
+.interactive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.interactive-item {
+    background-color: #d4edda; /* Verde claro */
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.interactive-item h3 {
+    color: #155724; /* Verde escuro */
+    margin-bottom: 10px;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+/* Footer */
+footer {
+    background-color: #343a40; /* Cinza escuro */
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-links img {
+    height: 30px;
+    margin: 0 10px;
+    transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsividade Básica (para telas menores) */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul li {
+        margin: 0 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+
+    .section-padded h2 {
+        font-size: 2em;
+    }
+
+    .info-blocks, .project-grid, .interactive-grid, .gallery-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
     }
 }
